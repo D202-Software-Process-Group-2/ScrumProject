@@ -1,2 +1,2 @@
-# ScrumProject
+# Study Application
 Scrum group project
