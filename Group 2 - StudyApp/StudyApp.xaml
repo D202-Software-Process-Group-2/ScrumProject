@@ -13,14 +13,19 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <!--Resources-->
         <Grid.Resources>
-
+            <Style TargetType="TextBlock">
+                <Setter Property="FontSize" Value="36"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Top"/>
+            </Style>
         </Grid.Resources>
         <!--Header-->
-        <TextBlock Text="Study App" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,42,0,0" TextWrapping="Wrap" Grid.ColumnSpan="2"/>
+        <TextBlock Text="User" Grid.Row="0" Grid.Column="0" Margin="0,42,0,0" TextWrapping="Wrap" Grid.ColumnSpan="2"/>
         <!--X-->
         <Label Grid.Row="0" Grid.Column="0" Content="Buttons" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top"/>
         <Button Grid.Row="0" Grid.Column="0" Content="Save" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="75"/>
