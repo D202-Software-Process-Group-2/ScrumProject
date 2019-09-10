@@ -1,0 +1,9 @@
+﻿<Application x:Class="Group_2___StudyApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Group_2___StudyApp"
+             StartupUri="StudyApp.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>

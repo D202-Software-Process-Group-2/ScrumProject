@@ -1,0 +1,34 @@
+﻿<Window x:Class="Group_2___StudyApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Group_2___StudyApp"
+        mc:Ignorable="d"
+        Title="Main Page" Height="450" Width="800">
+    <Grid x:Name="gridMain">
+        <!--Columns and Rows-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!--Resources-->
+        <Grid.Resources>
+
+        </Grid.Resources>
+        <!--Header-->
+        <TextBlock Text="Study App" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,42,0,0" TextWrapping="Wrap" Grid.ColumnSpan="2"/>
+        <!--X-->
+        <Label Grid.Row="0" Grid.Column="0" Content="Buttons" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top"/>
+        <Button Grid.Row="0" Grid.Column="0" Content="Save" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Grid.Row="0" Grid.Column="0" Content="Print" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Grid.Row="0" Grid.Column="0" Content="View" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Width="75"/>
+        <!--Datagrid-->
+        <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.Column="0" x:Uid="dataGrid" SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" Margin="20 30">
+            
+        </DataGrid>
+    </Grid>
+</Window>
