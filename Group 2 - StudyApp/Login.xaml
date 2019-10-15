@@ -1,0 +1,29 @@
+﻿<Window x:Class="Group_2___StudyApp.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:local="clr-namespace:Group_2___StudyApp"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="451" Background="white">
+    <Grid HorizontalAlignment="Left" Margin="0,0,-8,-21" Width="451" Height="440" VerticalAlignment="Bottom">
+        <PasswordBox HorizontalAlignment="Left" Margin="108,269,0,0" VerticalAlignment="Top" Width="333" Height="23"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="108,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="333"/>
+        <Button Content="Sign up" HorizontalAlignment="Left" Margin="10,0,0,55" Width="75" Height="20" VerticalAlignment="Bottom"/>
+        <Label Content="Student ID" HorizontalAlignment="Left" Margin="10,229,0,0" VerticalAlignment="Top" Width="93" Height="23"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="10,269,0,0" VerticalAlignment="Top" Width="93" Height="23"/>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Reset Password" HorizontalAlignment="Left" Margin="340,385,0,0" VerticalAlignment="Top" Width="101"/>
+        <Image Margin="131,32,144,239" Source="il_794xN.1788485897_b358.jpg" Stretch="Fill"/>
+    </Grid>
+
+
+
+
+
+
+
+
+</Window>
+    
+
