@@ -28,7 +28,6 @@ namespace Group_2___StudyApp
         {
             InitializeComponent();
             fillcombobox();
-            
         }
 
         void fillcombobox()

@@ -5,45 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Group_2___StudyApp"
         mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Main Page" Height="450" Width="800">
-    <Grid x:Name="gridMain">
-        <!--Columns and Rows-->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <!--Resources-->
-        <Grid.Resources>
-            <Style TargetType="TextBlock">
-                <Setter Property="FontSize" Value="36"/>
-                <Setter Property="FontWeight" Value="Bold"/>
-                <Setter Property="HorizontalAlignment" Value="Center"/>
-                <Setter Property="VerticalAlignment" Value="Top"/>
-            </Style>
-        </Grid.Resources>
-        <!--Header-->
-        <TextBlock Text="User" Grid.Row="0" Grid.Column="0" Margin="0,42,0,0" TextWrapping="Wrap" Grid.ColumnSpan="2"/>
-        <!--X-->
-        <Label Grid.Row="0" Grid.Column="0" Content="Buttons" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top"/>
-        <Button Grid.Row="0" Grid.Column="0" Content="Save" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Grid.Row="0" Grid.Column="0" Content="Print" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Grid.Row="0" Grid.Column="0" Content="View" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Width="75"/>
-        <Label Grid.Row="0" Grid.Column="0" Content="Majors :" HorizontalAlignment="Left" Margin="23,115,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="Mcombobox" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="90,115,0,0" VerticalAlignment="Top" Width="auto" SelectionChanged="Mcombobox_SelectionChanged"/>
-        <!--Datagrid-->
-        <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.Column="0" x:Uid="dataGrid" SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" Margin="20 30" ItemsSource="{Binding}">
-            <DataGrid.Columns>
+    <Grid x:Name="gridOverall">
+        <Grid x:Name="gridTopBar" Height="50" VerticalAlignment="Top">
+            <Label Grid.Row="0" Grid.Column="0" Content="Buttons" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top"/>
+            <Button Grid.Row="0" Grid.Column="0" Content="Save" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.478,0.107"/>
+            <Button Grid.Row="0" Grid.Column="0" Content="Print" HorizontalAlignment="Center" Margin="175,10,542,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-1.06,0.618"/>
+            <Button Grid.Row="0" Grid.Column="0" Content="View" HorizontalAlignment="Right" Margin="0,10,462,0" VerticalAlignment="Top" Width="75"/>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right">
+                <materialDesign:PopupBox Margin="5"/>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="gridMain" RenderTransformOrigin="0.495,0.379">
+            <!--Columns and Rows-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="153*"/>
+                <RowDefinition Height="266*"/>
+            </Grid.RowDefinitions>
+            <!--Resources-->
+            <Grid.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontSize" Value="36"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Top"/>
+                </Style>
+            </Grid.Resources>
+            <!--Header-->
+            <TextBlock Text="User" Grid.Row="0" Grid.Column="0" Margin="358,42,358,0" TextWrapping="Wrap" Height="48" Width="76"/>
+            <!--X-->
+            <Label Grid.Row="0" Grid.Column="0" Content="Majors :" HorizontalAlignment="Left" Margin="23,115,0,0" VerticalAlignment="Top" Height="26" Width="52"/>
+            <ComboBox x:Name="Mcombobox" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="90,115,0,0" VerticalAlignment="Top" Width="17" SelectionChanged="Mcombobox_SelectionChanged" Height="28"/>
+            <!--Datagrid-->
+            <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.Column="0" x:Uid="dataGrid" SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" Margin="20 30" ItemsSource="{Binding}">
+                <DataGrid.Columns>
 
-                <DataGridTextColumn Binding="{Binding Paper_Code}" Header="Paper Code" x:Name="paper_code" IsReadOnly="True" Width="*"/>
-                <DataGridTextColumn Binding="{Binding Name}" Header="Name" x:Name="name" IsReadOnly="True" Width="*"/>
-                <DataGridTextColumn Binding="{Binding Year}" Header="Year" x:Name="year" IsReadOnly="True" Width="*"/>
-                <DataGridTextColumn Binding="{Binding Semester}" Header="Semester" x:Name="semester" IsReadOnly="True" Width="*"/>
-                <DataGridTextColumn Binding="{Binding PreRequisite}" Header="Pre-Requisite" x:Name="PreReq" IsReadOnly="True" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Paper_Code}" Header="Paper Code" x:Name="paper_code" IsReadOnly="True" Width="120"/>
+                    <DataGridTextColumn Binding="{Binding Name}" Header="Name" x:Name="name" IsReadOnly="True" Width="230"/>
+                    <DataGridTextColumn Binding="{Binding Year}" Header="Year" x:Name="year" IsReadOnly="True" Width="90"/>
+                    <DataGridTextColumn Binding="{Binding Semester}" Header="Semester" x:Name="semester" IsReadOnly="True" Width="95"/>
+                    <DataGridTextColumn Binding="{Binding PreRequisite}" Header="Pre-Requisite" x:Name="PreReq" IsReadOnly="True" Width="120"/>
 
-            </DataGrid.Columns>
-        </DataGrid>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </Grid>
 </Window>
