@@ -82,6 +82,9 @@
     <Compile Include="SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Academic.xaml.cs">
+      <DependentUpon>Academic.xaml</DependentUpon>
+    </Compile>
     <Compile Include="_D202___Group_2DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -107,6 +110,10 @@
       <DependentUpon>StudyApp.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Academic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
