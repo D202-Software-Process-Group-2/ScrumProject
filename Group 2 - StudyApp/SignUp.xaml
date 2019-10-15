@@ -7,14 +7,17 @@
         mc:Ignorable="d"
         Title="SignUp" Height="450" Width="449">
     <Grid>
+        <!--Labels-->
         <Label x:Name="lblStuId" Content="Student ID" HorizontalAlignment="Left" Margin="76,133,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblFName" Content="First Name" HorizontalAlignment="Left" Margin="76,173,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblLName" Content="Last Name" HorizontalAlignment="Left" Margin="77,216,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblPass" Content="Password" HorizontalAlignment="Left" Margin="76,258,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbxStuId" HorizontalAlignment="Left" Height="23" Margin="172,133,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="tbxFName" HorizontalAlignment="Left" Height="23" Margin="172,173,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="tbxLName" HorizontalAlignment="Left" Height="23" Margin="172,216,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <!--Input textboxes-->
+        <TextBox x:Name="tbxStuId" HorizontalAlignment="Left" Height="23" Margin="172,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbxFName" HorizontalAlignment="Left" Height="23" Margin="172,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbxLName" HorizontalAlignment="Left" Height="23" Margin="172,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <PasswordBox x:Name="pbxPass" HorizontalAlignment="Left" Margin="172,258,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
+        <!--Buttons-->
         <Button Content="Create Account" HorizontalAlignment="Left" Margin="310,308,0,0" VerticalAlignment="Top" Width="Auto"/>
         <Button Content="Back" HorizontalAlignment="Left" Margin="310,344,0,0" VerticalAlignment="Top" Width="85"/>
     </Grid>
