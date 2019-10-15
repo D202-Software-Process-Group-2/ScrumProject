@@ -12,9 +12,9 @@
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right">
                 <materialDesign:PopupBox Margin="5">
                     <StackPanel>
-                        <Button Content="Save"/>
-                        <Button Content="Print"/>
-                        <Button Content="View"/>
+                        <Button x:Name="btnSave" Content="Save"/>
+                        <Button x:Name="btnPrint" Content="Print"/>
+                        <Button x:Name="btnView" Content="View"/>
                     </StackPanel>
                 </materialDesign:PopupBox>
             </StackPanel>
@@ -40,7 +40,7 @@
             <!--Header-->
             <TextBlock Text="User" Grid.Row="0" Grid.Column="0" Margin="23,10,693,0" TextWrapping="Wrap" Height="48" Width="76"/>
             <!--X-->
-            <Label Grid.Row="0" Grid.Column="0" Content="Majors :" HorizontalAlignment="Left" Margin="23,115,0,0" VerticalAlignment="Top" Height="26" Width="52"/>
+            <Label x:Name="lblMajors" Content="Majors :" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="23,115,0,0" VerticalAlignment="Top" Height="26" Width="52"/>
             <ComboBox x:Name="Mcombobox" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="90,115,0,0" VerticalAlignment="Top" Width="17" SelectionChanged="Mcombobox_SelectionChanged" Height="28"/>
             <!--Datagrid-->
             <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.Column="0" x:Uid="dataGrid" SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" Margin="20 30" ItemsSource="{Binding}">
@@ -50,6 +50,14 @@
                     <DataGridTextColumn Binding="{Binding Year}" Header="Year" x:Name="year" IsReadOnly="True" Width="90"/>
                     <DataGridTextColumn Binding="{Binding Semester}" Header="Semester" x:Name="semester" IsReadOnly="True" Width="95"/>
                     <DataGridTextColumn Binding="{Binding PreRequisite}" Header="Pre-Requisite" x:Name="PreReq" IsReadOnly="True" Width="120"/>
+                    
+                    <DataGridTemplateColumn Header="Delete" Width="*" >
+                        <DataGridTemplateColumn.CellTemplate >
+                            <DataTemplate>
+                                <Button x:Name="btnDelete" Content="X" Click="btnDelete" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
