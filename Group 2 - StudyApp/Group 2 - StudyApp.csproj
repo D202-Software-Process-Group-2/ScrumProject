@@ -166,7 +166,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>D202 - Group 2.mdf</DependentUpon>
     </Content>
-    <Resource Include="il_794xN.1788485897_b358.jpg" />
+    <Resource Include="purpleFace.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
