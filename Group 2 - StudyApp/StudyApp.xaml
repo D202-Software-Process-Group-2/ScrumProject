@@ -32,10 +32,18 @@
         <Button Grid.Row="0" Grid.Column="0" Content="Print" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Grid.Row="0" Grid.Column="0" Content="View" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Grid.Row="0" Grid.Column="0" Content="Majors :" HorizontalAlignment="Left" Margin="23,115,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="Mcombobox" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="90,115,0,0" VerticalAlignment="Top" Width="auto"/>
+        <ComboBox x:Name="Mcombobox" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="90,115,0,0" VerticalAlignment="Top" Width="auto" SelectionChanged="Mcombobox_SelectionChanged"/>
         <!--Datagrid-->
-        <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.Column="0" x:Uid="dataGrid" SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" Margin="20 30">
-            
+        <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.Column="0" x:Uid="dataGrid" SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" Margin="20 30" ItemsSource="{Binding}">
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Binding="{Binding Paper_Code}" Header="Paper Code" x:Name="paper_code" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Name" x:Name="name" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Year}" Header="Year" x:Name="year" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Semester}" Header="Semester" x:Name="semester" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Binding="{Binding PreRequisite}" Header="Pre-Requisite" x:Name="PreReq" IsReadOnly="True" Width="*"/>
+
+            </DataGrid.Columns>
         </DataGrid>
     </Grid>
 </Window>

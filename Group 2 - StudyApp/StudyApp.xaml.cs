@@ -51,5 +51,27 @@ namespace Group_2___StudyApp
                 }
             }
         }
+
+        void filldatagrid()
+        {
+            SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
+            con.Open();
+            string sqlquery = "Select p.Paper_Code, p.Name, p.Description, p.Year, p.PreRequisite, p.Compulsory, c.Semester From Paper p Inner Join Class c On c.Paper_Code=p.Paper_Code Inner Join Major m ON m.Major_Id=c.Major_Id Where m.Name = ('" + Mcombobox.SelectedItem.ToString() + "') ORDER BY Year, Semester";
+            SqlCommand cmd = new SqlCommand(sqlquery, con);
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            dataGrid.ItemsSource = dt.DefaultView;
+            con.Close();
+        }
+
+        private void Mcombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            dataGrid.ItemsSource = null;
+            dataGrid.Items.Clear();
+            filldatagrid();
+        }
     }
 }
