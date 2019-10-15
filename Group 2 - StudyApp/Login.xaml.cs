@@ -11,6 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
+using System.Data.Sql;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Group_2___StudyApp
 {
@@ -22,6 +26,18 @@ namespace Group_2___StudyApp
         public Login()
         {
             InitializeComponent();
+        }
+
+        private void BtnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            new MainWindow().Show();
+            this.Close();
+        }
+
+        private void BtnSignUp_Click(object sender, RoutedEventArgs e)
+        {
+            new SignUp().Show();
+            this.Hide();
         }
     }
 }
