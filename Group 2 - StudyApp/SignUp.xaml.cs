@@ -23,10 +23,5 @@ namespace Group_2___StudyApp
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
     }
 }

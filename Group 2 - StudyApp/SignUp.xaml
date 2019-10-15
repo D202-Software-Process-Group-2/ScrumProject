@@ -17,6 +17,5 @@
         <PasswordBox x:Name="pbxPass" HorizontalAlignment="Left" Margin="172,258,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
         <Button Content="Create Account" HorizontalAlignment="Left" Margin="310,308,0,0" VerticalAlignment="Top" Width="Auto"/>
         <Button Content="Back" HorizontalAlignment="Left" Margin="310,344,0,0" VerticalAlignment="Top" Width="85" Click="Button_Click"/>
-
     </Grid>
 </Window>
