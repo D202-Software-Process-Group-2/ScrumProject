@@ -33,5 +33,18 @@ namespace Group_2___StudyApp.Properties {
                 return ((string)(this["D202___Group_2ConnectionString"]));
             }
         }
+
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\D202 - Group" +
+            " 2.mdf\";Integrated Security=True")]
+        public string DataConString
+        {
+            get
+            {
+                return ((string)(this["DataConString"]));
+            }
+        }
     }
 }
