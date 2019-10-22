@@ -18,7 +18,7 @@
         <TextBox x:Name="tbxLName" HorizontalAlignment="Left" Height="23" Margin="172,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <PasswordBox x:Name="pbxPass" HorizontalAlignment="Left" Margin="172,258,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
         <!--Buttons-->
-        <Button Content="Create Account" HorizontalAlignment="Left" Margin="310,308,0,0" VerticalAlignment="Top" Width="Auto"/>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="310,344,0,0" VerticalAlignment="Top" Width="85"/>
+        <Button x:Name="btnCreate" Content="Create Account" HorizontalAlignment="Left" Margin="310,308,0,0" VerticalAlignment="Top" Width="Auto" Click="BtnCreate_Click"/>
+        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="310,344,0,0" VerticalAlignment="Top" Width="85" Click="BtnBack_Click"/>
     </Grid>
 </Window>

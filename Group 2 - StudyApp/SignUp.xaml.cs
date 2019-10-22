@@ -11,6 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
+using System.Data.Sql;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Group_2___StudyApp
 {
@@ -19,9 +23,49 @@ namespace Group_2___StudyApp
     /// </summary>
     public partial class SignUp : Window
     {
+
         public SignUp()
         {
             InitializeComponent();
         }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {            
+            new Login().Show();
+            this.Close();
+        }
+
+        private void BtnCreate_Click(object sender, RoutedEventArgs e)
+        {
+            int Student_Id = int.Parse(tbxStuId.Text);
+            string Firstname = tbxFName.Text;
+            string Lastname = tbxLName.Text;
+            string Password = pbxPass.Password;
+
+            string sqlquery = "INSERT INTO Student(Student_Id, Firstname, Lastname, password) " +
+                "Values('" + Student_Id + "', '" + Firstname + "', '" + Lastname + "', '" + Password + "')";
+
+            SqlConnection con = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\1711971\\Source\\Repos\\Study-Application\\Group 2 - StudyApp\\D202 - Group 2.mdf; Integrated Security = True"); //Properties.Settings.Default.DataConString
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("There is an Error" + ex);
+            }
+            finally
+            {
+                con.Close();
+                new Login().Show();
+                this.Close();
+            }
+
+           // new Login().Show();
+           // this.Close();
+        }
+
     }
 }
