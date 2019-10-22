@@ -21,6 +21,7 @@ namespace Group_2___StudyApp
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
+
     public partial class Academic : Window
     {
         public Academic()
@@ -28,6 +29,10 @@ namespace Group_2___StudyApp
             InitializeComponent();
             filldatagrid();
         }
+
+        public DataTable dthistory = new DataTable();
+
+        private DataTable dt = new DataTable();
         void filldatagrid()
         {
             SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
@@ -36,7 +41,6 @@ namespace Group_2___StudyApp
             SqlCommand cmd = new SqlCommand(sqlquery, con);
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
 
-            DataTable dt = new DataTable();
             adp.Fill(dt);
 
             dataGrid.ItemsSource = dt.DefaultView;
@@ -45,6 +49,12 @@ namespace Group_2___StudyApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
+            //foreach ()
+            //{
+
+            //}
+
             new MainWindow().Show();
             this.Close();
         }

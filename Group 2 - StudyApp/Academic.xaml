@@ -14,8 +14,7 @@
                 <DataGridTextColumn Binding="{Binding Paper_Code}" Header="Paper Code" x:Name="paper_code" IsReadOnly="True" Width="120"/>
                 <DataGridTextColumn Binding="{Binding Name}" Header="Name" x:Name="name" IsReadOnly="True" Width="230"/>
                 <DataGridTextColumn Binding="{Binding Year}" Header="Year" x:Name="year" IsReadOnly="True" Width="90"/>
-                <DataGridTextColumn Binding="{Binding PreRequisite}" Header="Pre-Requisite" x:Name="PreReq" IsReadOnly="True" Width="120"/>
-                <DataGridCheckBoxColumn Header="Papers Completed  "/>
+                <DataGridCheckBoxColumn Header="Papers Completed" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Submit" HorizontalAlignment="Left" Margin="10,371,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click"/>

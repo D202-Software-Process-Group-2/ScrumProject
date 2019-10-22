@@ -31,6 +31,7 @@ namespace Group_2___StudyApp
         {
             InitializeComponent();
             fillcombobox();
+            fillCourses();
         }
 
         void fillcombobox()
@@ -52,6 +53,30 @@ namespace Group_2___StudyApp
                     Mcombobox.Items.Add(dt.Rows[i]["Name"].ToString());
                 }
             }
+        }
+
+        void fillCourses()
+        {
+            SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
+            con.Open();
+            string sqlquery = "Select * FROM Paper";
+            SqlCommand cmd = new SqlCommand(sqlquery, con);
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            dt.Columns.Add("Course", typeof(string), "Paper_Code + ' ' + Name");
+
+            cbxCourses.DataContext = dt;
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    cbxCourses.Items.Add(dt.Rows[i]["Course"].ToString() );
+                }
+            }
+           
         }
 
         void filldatagrid()

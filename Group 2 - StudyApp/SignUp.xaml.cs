@@ -45,7 +45,7 @@ namespace Group_2___StudyApp
             string sqlquery = "INSERT INTO Student(Student_Id, Firstname, Lastname, password) " +
                 "Values('" + Student_Id + "', '" + Firstname + "', '" + Lastname + "', '" + Password + "')";
 
-            SqlConnection con = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\1711971\\Source\\Repos\\Study-Application\\Group 2 - StudyApp\\D202 - Group 2.mdf; Integrated Security = True"); //Properties.Settings.Default.DataConString
+            SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString); // "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\1711971\\Source\\Repos\\Study-Application\\Group 2 - StudyApp\\D202 - Group 2.mdf; Integrated Security = True"
             try
             {
                 SqlCommand cmd = new SqlCommand(sqlquery, con);
