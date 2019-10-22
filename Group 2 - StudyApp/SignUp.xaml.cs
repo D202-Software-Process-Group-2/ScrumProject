@@ -29,13 +29,13 @@ namespace Group_2___StudyApp
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
         {            
             new Login().Show();
             this.Close();
         }
 
-        private void CreAcc_Click_1(object sender, RoutedEventArgs e)
+        private void BtnCreate_Click(object sender, RoutedEventArgs e)
         {
             int Student_Id = int.Parse(tbxStuId.Text);
             string Firstname = tbxFName.Text;
@@ -66,5 +66,6 @@ namespace Group_2___StudyApp
            // new Login().Show();
            // this.Close();
         }
+
     }
 }
