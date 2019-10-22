@@ -27,7 +27,6 @@ namespace Group_2___StudyApp
         {
             InitializeComponent();
         }
-
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
             SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
@@ -40,7 +39,7 @@ namespace Group_2___StudyApp
                 sqlCmd.CommandType = CommandType.Text;
                 sqlCmd.Parameters.AddWithValue("@Student_Id", tbxId.Text);
                 sqlCmd.Parameters.AddWithValue("@password", pbxPass.Password);
-                int count= Convert.ToInt32(sqlCmd.ExecuteScalar());
+                int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
                 if (count == 1)
                 {
                     new MainWindow().Show();

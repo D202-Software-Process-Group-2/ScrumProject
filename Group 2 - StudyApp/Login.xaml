@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:Group_2___StudyApp"
         mc:Ignorable="d"
         Title="Login" Height="501" Width="500">
-    <Grid Margin="0,0,-8,-21">
+    <Grid>
         <!--Image-->
-        <Image x:Name="imgPurpleFace" Source="purpleFace.jpg" Stretch="Fill" HorizontalAlignment="Center" Margin="150,10,150,270"/>
+        <Image x:Name="imgPurpleFace" Source="purpleFace.jpg" Stretch="Fill" HorizontalAlignment="Center" Margin="150,30,150,250"/>
         <!--Labels-->
         <Label x:Name="lblId" Content="Student ID" HorizontalAlignment="Left" Margin="10,229,0,0" VerticalAlignment="Top" Width="93" Height="23"/>
         <Label x:Name="lblPass" Content="Password" HorizontalAlignment="Left" Margin="10,269,0,0" VerticalAlignment="Top" Width="93" Height="23"/>
@@ -16,8 +16,8 @@
         <TextBox x:Name="tbxId" HorizontalAlignment="Left" Height="23" Margin="108,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <PasswordBox x:Name="pbxPass" HorizontalAlignment="Left" Margin="108,269,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
         <!--Buttons-->
-        <Button x:Name="btnLogin" Content="Login" Margin="0,366,379,0" RenderTransformOrigin="0.515,1.089" Click="BtnLogin_Click" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" Width="111"/>
-        <Button x:Name="btnSignUp" Content="Sign up" Margin="0,427,379,0" Height="32" VerticalAlignment="Top" RenderTransformOrigin="0.878,0.544" HorizontalAlignment="Right" Width="111"/>
-        <Button x:Name="btnResetPass" Content="Reset Password" Margin="327,416,24,0" Height="43" VerticalAlignment="Top" RenderTransformOrigin="0.606,1.121"/>
+        <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="10,317,0,121" Width="472" RenderTransformOrigin="0.515,1.089"/>
+        <Button x:Name="btnSignUp" Content="Sign up" HorizontalAlignment="Left" Margin="10,354,0,84"/>
+        <Button x:Name="btnResetPass" Content="Reset Password" HorizontalAlignment="Left" Margin="10,410,0,28"/>
     </Grid>
 </Window>
