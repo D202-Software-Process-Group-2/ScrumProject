@@ -8,7 +8,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Main Page" Height="600" Width="800">
     <Grid x:Name="gridOverall">
-        <Grid x:Name="gridTopBar" Height="50" VerticalAlignment="Top">
+        <Grid x:Name="gridTopBar" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right">
                 <materialDesign:PopupBox Margin="5">
                     <StackPanel>
@@ -26,7 +26,7 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="153*"/>
-                <RowDefinition Height="225"/>
+                <RowDefinition Height="370"/>
             </Grid.RowDefinitions>
             <!--Resources-->
             <Grid.Resources>
@@ -42,32 +42,31 @@
             <!--Major selection section-->
             <Grid x:Name="gridMajors" Grid.Row="0" Grid.Column="0" Height="auto" Width="auto" HorizontalAlignment="right" VerticalAlignment="Bottom" Margin="0,0,20,0">
                 <StackPanel Orientation="Horizontal">
-                    <Label x:Name="lblMajors" Content="Majors :" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <ComboBox x:Name="Mcombobox" Width="215" HorizontalAlignment="Left" VerticalAlignment="Center" SelectionChanged="Mcombobox_SelectionChanged"/>
+                    <ComboBox x:Name="Mcombobox" Text="Choose Major" IsEditable="True" IsReadOnly="True" Width="215" Focusable="False" Cursor="Hand" SelectionChanged="Mcombobox_SelectionChanged"/>
                 </StackPanel>
             </Grid>
             <!--Course Controls Section-->
             <Grid x:Name="gridCourseControls" Grid.Row="0" Grid.Column="0" Height="100" Width="350" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="23,0,0,0">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Height="60">
                     <!--Radiobutton years-->
-                    <RadioButton x:Name="rbnYr1" Content="Year 1" Height="20" GroupName="Year" IsChecked="True"/>
-                    <RadioButton x:Name="rbnYr2" Content="Year 2" Height="20" GroupName="Year"/>
-                    <RadioButton x:Name="rbnYr3" Content="Year 3" Height="20" GroupName="Year"/>
+                    <RadioButton x:Name="rbtYr1" Content="Year 1" Cursor="Hand" Height="20" GroupName="Year" IsChecked="True"/>
+                    <RadioButton x:Name="rbtYr2" Content="Year 2" Cursor="Hand" Height="20" GroupName="Year"/>
+                    <RadioButton x:Name="rbtYr3" Content="Year 3" Cursor="Hand" Height="20" GroupName="Year"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Height="40" Margin="59,0,46,0">
                     <!--Radiobutton Semester-->
-                    <RadioButton x:Name="rbnsem1" Content="Sem 1" GroupName="Semester" IsChecked="True"/>
-                    <RadioButton x:Name="rbsem2" Content="Sem 2" GroupName="Semester"/>
+                    <RadioButton x:Name="rbtsem1" Content="Sem 1" Cursor="Hand" GroupName="Semester" IsChecked="True"/>
+                    <RadioButton x:Name="rbtsem2" Content="Sem 2" Cursor="Hand" GroupName="Semester"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Width="auto">
                     <!--Interactive controls-->
-                    <ComboBox x:Name="cbxCourses" Width="215"/>
+                    <ComboBox x:Name="cbxCourses" Text="Choose Course" IsEditable="True" IsReadOnly="True" Focusable="False" Cursor="Hand" Width="215"/>
                     <Button x:Name="btnAdd" Content="Add" Margin="10,0,0,0"/>
                     <Button x:Name="btnInfo" Content="Info" Margin="10,0,0,0"/>
                 </StackPanel>
             </Grid>
             <!--Datagrid-->
-            <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.Column="0" x:Uid="dataGrid" SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" Height="200" Margin="20 0" ItemsSource="{Binding}">
+            <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.Column="0" x:Uid="dataGrid" SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" Height="350" Margin="20 0" ItemsSource="{Binding}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Paper_Code}" Header="Paper Code" x:Name="paper_code" IsReadOnly="True" Width="120"/>
                     <DataGridTextColumn Binding="{Binding Name}" Header="Name" x:Name="name" IsReadOnly="True" Width="230"/>

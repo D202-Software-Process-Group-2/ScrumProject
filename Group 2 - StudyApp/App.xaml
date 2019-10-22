@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Group_2___StudyApp"
              StartupUri="StudyApp.xaml">
-             <!--copy/paste and replace above line of code to change which window to open when testing
+    <!--copy/paste and replace above line of code to change which window to open when testing
              StartupUri="Academic.xaml"
              StartupUri="StudyApp.xaml">
              StartupUri="Login.xaml">

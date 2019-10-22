@@ -10,7 +10,6 @@
         <Label Content="Academic Record" HorizontalAlignment="Left" Margin="38,10,0,0" VerticalAlignment="Top" Height="Auto" FontSize="72" FontFamily="Times New Roman"/>
         <DataGrid x:Name="dataGrid" Grid.Column="0" x:Uid="dataGrid" SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" Margin="20,100,21,53" ItemsSource="{Binding}">
             <DataGrid.Columns>
-
                 <DataGridTextColumn Binding="{Binding Paper_Code}" Header="Paper Code" x:Name="paper_code" IsReadOnly="True" Width="120"/>
                 <DataGridTextColumn Binding="{Binding Name}" Header="Name" x:Name="name" IsReadOnly="True" Width="230"/>
                 <DataGridTextColumn Binding="{Binding Year}" Header="Year" x:Name="year" IsReadOnly="True" Width="90"/>
