@@ -24,6 +24,9 @@ namespace Group_2___StudyApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        //For delete function
+        static int PK_ID;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -71,6 +74,21 @@ namespace Group_2___StudyApp
             dataGrid.ItemsSource = null;
             dataGrid.Items.Clear();
             filldatagrid();
+        }
+
+        private void btnDelete(object sender, RoutedEventArgs e)
+        {
+            //var id1 = (DataRowView)dataGrid.SelectedItem;
+
+            //PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
+
+            //SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
+            //con.Open();
+            //string sqlquery = "delete from Major where Major_Id='" + PK_ID + "' ";
+            //SqlCommand cmd = new SqlCommand(sqlquery, con);
+            //cmd.ExecuteNonQuery();
+
+            //filldatagrid();
         }
     }
 }
