@@ -78,6 +78,9 @@ namespace Group_2___StudyApp
 
         private void btnDelete(object sender, RoutedEventArgs e)
         {
+            //--Current Code deletes data in the database so it is--
+            //--commented until alternative code is implemented--
+
             //var id1 = (DataRowView)dataGrid.SelectedItem;
 
             //PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());

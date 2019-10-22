@@ -59,5 +59,11 @@ namespace Group_2___StudyApp
                 con.Close();
             }
         }
+
+        private void BtnSignUp_Click(object sender, RoutedEventArgs e)
+        {
+            new SignUp().Show();
+            this.Close();
+        }
     }
 }
