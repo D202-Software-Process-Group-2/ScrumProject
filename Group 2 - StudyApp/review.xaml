@@ -1,0 +1,33 @@
+﻿<Window x:Class="Group_2___StudyApp.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Group_2___StudyApp"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid>
+        <Label Content="Review"  Width="563" Height="84" FontSize="72" FontFamily="Times New Roman" Margin="10,10,219,325"/>
+        <Label Content="Student Details" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top" Width="217"/>
+        <Grid>
+            <StackPanel HorizontalAlignment="Center" Height="110" Width="72" Margin="15,129,705,180" Orientation="Vertical">
+                <Label Content="Student ID"/>
+                <Label Content="First Name"/>
+                <Label Content="Last Name"/>
+                <Label Content="Major"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" Height="110" Margin="92,130,0,0" VerticalAlignment="Top" Width="194">
+                <Label Content="x" x:Name="lblStudent_Id"/>
+                <Label Content="x" x:Name="lblFirst_Name"/>
+                <Label Content="x" x:Name="lblLast_Name"/>
+                <Label Content="x" x:Name="lblmajor"/>
+            </StackPanel>
+            <ListBox HorizontalAlignment="Left" Height="280" Margin="356,129,0,0" VerticalAlignment="Top" Width="426"/>
+            <Button Content="Print" HorizontalAlignment="Left" Margin="10,295,0,0" VerticalAlignment="Top" Width="75"/>
+            <Button Content="Save" HorizontalAlignment="Left" Margin="92,295,0,0" VerticalAlignment="Top" Width="75"/>
+            <Button Content="Back" HorizontalAlignment="Left" Margin="10,332,0,0" VerticalAlignment="Top" Width="157"/>
+        </Grid>
+        <Label Content="Courses" Margin="352,99,388,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
