@@ -85,6 +85,12 @@
     <Compile Include="Academic.xaml.cs">
       <DependentUpon>Academic.xaml</DependentUpon>
     </Compile>
+    <Compile Include="review.xaml.cs">
+      <DependentUpon>review.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window2.xaml.cs">
+      <DependentUpon>Window2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="_D202___Group_2DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -111,6 +117,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Academic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="review.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
