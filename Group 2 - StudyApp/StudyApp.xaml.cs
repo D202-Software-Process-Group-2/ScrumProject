@@ -25,7 +25,7 @@ namespace Group_2___StudyApp
     public partial class MainWindow : Window
     {
         //For delete function
-        static int PK_ID;
+        //static int PK_ID;
 
         public MainWindow()
         {

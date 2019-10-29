@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Group_2___StudyApp"
         mc:Ignorable="d"
-        Title="Window2" Height="450" Width="876.022">
+        Title="Admin Panel" Height="450" Width="876.022">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="867*"/>
