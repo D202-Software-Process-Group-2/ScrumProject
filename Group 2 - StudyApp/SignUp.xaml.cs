@@ -37,7 +37,7 @@ namespace Group_2___StudyApp
 
         private void BtnCreate_Click(object sender, RoutedEventArgs e)
         {
-            int Student_Id = int.Parse(tbxStuId.Text);
+            string Student_Id = tbxStuId.Text;
             string Firstname = tbxFName.Text;
             string Lastname = tbxLName.Text;
             string Password = pbxPass.Password;

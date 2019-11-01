@@ -94,8 +94,15 @@ namespace Group_2___StudyApp
             con.Close();
         }
 
+        void uncheckradio()
+        {
+            rbtYr1.IsChecked = false;
+            rbtYr2.IsChecked = false;
+            rbtYr3.IsChecked = false;
+        }
         private void Mcombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            uncheckradio();
             dataGrid.ItemsSource = null;
             dataGrid.Items.Clear();
             filldatagrid();
@@ -117,6 +124,72 @@ namespace Group_2___StudyApp
             //cmd.ExecuteNonQuery();
 
             //filldatagrid();
+        }
+
+        private void BtnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            new Login().Show();
+            this.Close();
+        }
+
+        private void RbtYr1_Checked(object sender, RoutedEventArgs e)
+        {
+            SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
+            con.Open();
+            string sqlquery = "SELECT * FROM Paper WHERE Year = 1";
+            SqlCommand cmd = new SqlCommand(sqlquery, con);
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            dt.Columns.Add("Course", typeof(string), "Paper_Code + ' ' + Name");
+
+            cbxCourses.DataContext = dt;
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    cbxCourses.Items.Add(dt.Rows[i]["Course"].ToString());
+                }
+            }
+            con.Close();
+        }
+
+        private void RbtYr2_Checked(object sender, RoutedEventArgs e)
+        {
+            SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
+            con.Open();
+            string sqlquery = "SELECT * FROM Paper WHERE Year = 2";
+            SqlCommand cmd = new SqlCommand(sqlquery, con);
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            dataGrid.ItemsSource = dt.DefaultView;
+            con.Close();
+        }
+
+        private void RbtYr3_Checked(object sender, RoutedEventArgs e)
+        {
+            SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
+            con.Open();
+            string sqlquery = "SELECT * FROM Paper WHERE Year = 3";
+            SqlCommand cmd = new SqlCommand(sqlquery, con);
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            dataGrid.ItemsSource = dt.DefaultView;
+            con.Close();
+        }
+
+        private void BtnAcademic_Click(object sender, RoutedEventArgs e)
+        {
+            new Academic().Show();
+            this.Hide();
         }
     }
 }

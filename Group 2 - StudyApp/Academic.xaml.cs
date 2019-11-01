@@ -50,10 +50,10 @@ namespace Group_2___StudyApp
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
-            //foreach ()
-            //{
+            foreach (DataGridCheckBoxColumn bxdata in dataGrid.Items)
+            {
 
-            //}
+            }
 
             new MainWindow().Show();
             this.Close();

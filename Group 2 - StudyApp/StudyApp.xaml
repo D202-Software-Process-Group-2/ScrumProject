@@ -14,6 +14,7 @@
                     <StackPanel Orientation="Vertical">
                         <Button x:Name="btnSave" Content="Save"/>
                         <Button x:Name="btnPrint" Content="Print"/>
+                        <Button x:Name="btnLogout" Content="Log Out" Click="BtnLogout_Click"/>
                     </StackPanel>
                 </materialDesign:PopupBox>
             </StackPanel>
@@ -48,14 +49,9 @@
             <Grid x:Name="gridCourseControls" Grid.Row="0" Grid.Column="0" Height="100" Width="350" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="23,0,0,0">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Height="60">
                     <!--Radiobutton years-->
-                    <RadioButton x:Name="rbtYr1" Content="Year 1" Cursor="Hand" Height="20" GroupName="Year" IsChecked="True"/>
-                    <RadioButton x:Name="rbtYr2" Content="Year 2" Cursor="Hand" Height="20" GroupName="Year"/>
-                    <RadioButton x:Name="rbtYr3" Content="Year 3" Cursor="Hand" Height="20" GroupName="Year"/>
-                </StackPanel>
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Height="40" Margin="59,0,46,0">
-                    <!--Radiobutton Semester-->
-                    <RadioButton x:Name="rbtsem1" Content="Sem 1" Cursor="Hand" GroupName="Semester" IsChecked="True"/>
-                    <RadioButton x:Name="rbtsem2" Content="Sem 2" Cursor="Hand" GroupName="Semester"/>
+                    <RadioButton x:Name="rbtYr1" Content="Year 1" Cursor="Hand" Height="20" GroupName="Year" Checked="RbtYr1_Checked"/>
+                    <RadioButton x:Name="rbtYr2" Content="Year 2" Cursor="Hand" Height="20" GroupName="Year" Checked="RbtYr2_Checked"/>
+                    <RadioButton x:Name="rbtYr3" Content="Year 3" Cursor="Hand" Height="20" GroupName="Year" Checked="RbtYr3_Checked"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Width="auto">
                     <!--Interactive controls-->
@@ -65,7 +61,7 @@
                 </StackPanel>
             </Grid>
             <!--Next Page Button-->
-            <Button x:Name="btnNextPage" Content="Next page" Width="100" Height="auto" Margin="452,167,240,0"/>
+            <Button x:Name="btnAcademic" Content="Academic History" Height="auto" Margin="605,99,20,58" Click="BtnAcademic_Click"/>
             <!--Datagrid-->
             <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.Column="0" x:Uid="dataGrid" SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" Height="350" Margin="20 0" ItemsSource="{Binding}">
                 <DataGrid.Columns>

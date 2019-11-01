@@ -42,12 +42,23 @@ namespace Group_2___StudyApp
                 int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
                 if (count == 1)
                 {
-                    new MainWindow().Show();
-                    this.Close();
+                    if (tbxId.Text == "admin")
+                    {
+                        new Window2().Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        new MainWindow().Show();
+                        this.Close();
+                    }
+                    
                 }
                 else
                 {
                     MessageBox.Show("Username or password is incorrect");
+                    tbxId.Text = null;
+                    pbxPass.Password = null;
                 }
             }
             catch (Exception ex)
