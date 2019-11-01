@@ -30,8 +30,6 @@ namespace Group_2___StudyApp
             filldatagrid();
         }
 
-        public DataTable dthistory = new DataTable();
-
         private DataTable dt = new DataTable();
         void filldatagrid()
         {
@@ -49,11 +47,7 @@ namespace Group_2___StudyApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            foreach (DataGridCheckBoxColumn bxdata in dataGrid.Items)
-            {
-                
-            }
+            MainWindow.dtSelections = ((DataTable)dataGrid.DataContext).Clone();
 
             new MainWindow().Show();
             this.Close();

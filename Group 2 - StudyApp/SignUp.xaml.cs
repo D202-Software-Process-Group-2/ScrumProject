@@ -29,6 +29,8 @@ namespace Group_2___StudyApp
             InitializeComponent();
         }
 
+        public DataTable dtSelection;
+
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {            
             new Login().Show();

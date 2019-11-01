@@ -46,6 +46,7 @@ namespace Group_2___StudyApp
         {
             new Login().Show();
             this.Close();
+            
         }
     }
 }
