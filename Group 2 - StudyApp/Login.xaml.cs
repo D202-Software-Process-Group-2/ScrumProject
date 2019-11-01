@@ -57,7 +57,6 @@ namespace Group_2___StudyApp
                 else
                 {
                     MessageBox.Show("Username or password is incorrect");
-                    tbxId.Text = null;
                     pbxPass.Password = null;
                 }
             }
@@ -75,6 +74,11 @@ namespace Group_2___StudyApp
         {
             new SignUp().Show();
             this.Close();
+        }
+
+        private void BtnResetPass_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

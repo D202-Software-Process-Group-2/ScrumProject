@@ -5,9 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Group_2___StudyApp"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800">
+        Title="Academic" Height="450" Width="800">
     <Grid Height="419" VerticalAlignment="Bottom">
+        <!--Title-->
         <Label Content="Academic Record" HorizontalAlignment="Left" Margin="38,10,0,0" VerticalAlignment="Top" Height="Auto" FontSize="72" FontFamily="Times New Roman"/>
+        <!--Image-->
+        <Image Margin="603,6,10,320" Source="pack://siteoforigin:,,,/Resources/Ucol Logo.png"/>
+        
         <DataGrid x:Name="dataGrid" Grid.Column="0" x:Uid="dataGrid" SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" Margin="20,100,21,53" ItemsSource="{Binding}">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Paper_Code}" Header="Paper Code" x:Name="paper_code" IsReadOnly="True" Width="120"/>

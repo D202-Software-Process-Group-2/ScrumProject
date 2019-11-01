@@ -31,7 +31,7 @@ namespace Group_2___StudyApp
         {
             InitializeComponent();
             fillcombobox();
-            fillCourses();
+            //fillCourses();
         }
 
         void fillcombobox()
@@ -213,7 +213,10 @@ namespace Group_2___StudyApp
 
         private void RbtAll_Checked(object sender, RoutedEventArgs e)
         {
-            cbxCourses.Items.Clear();
+            if (cbxCourses != null)
+            {
+                cbxCourses.Items.Clear();
+            }
             fillCourses();
         }
     }

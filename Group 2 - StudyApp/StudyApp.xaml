@@ -61,7 +61,9 @@
                     <Button x:Name="btnInfo" Content="Info" Margin="10,0,0,0"/>
                 </StackPanel>
             </Grid>
-            <!--Next Page Button-->
+            <!--UCOL LOGO-->
+            <Image Margin="279,14,279,64" HorizontalAlignment="Center" Width="234" Source="pack://siteoforigin:,,,/Resources/Ucol Logo.png"/>
+            <!--Buttons to academic and review page-->
             <Button x:Name="btnAcademic" Content="Academic History" Height="auto" Margin="605,72,20,85" Click="BtnAcademic_Click" RenderTransformOrigin="0.527,-0.19"/>
             <Button x:Name="btnReview" Content="Review" Height="auto" Margin="605,119,20,38" Click="BtnReview_Click" RenderTransformOrigin="1.518,0.357"/>
             <!--Datagrid-->

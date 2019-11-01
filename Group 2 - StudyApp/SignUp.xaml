@@ -7,18 +7,27 @@
         mc:Ignorable="d"
         Title="SignUp" Height="450" Width="449">
     <Grid>
+        <Image Margin="0,0,0,250" HorizontalAlignment="Center" Height="100" Width="194" Source="pack://siteoforigin:,,,/Resources/Ucol Logo.png"/>
         <!--Labels-->
-        <Label x:Name="lblStuId" Content="Student ID" HorizontalAlignment="Left" Margin="76,133,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblFName" Content="First Name" HorizontalAlignment="Left" Margin="76,173,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblLName" Content="Last Name" HorizontalAlignment="Left" Margin="77,216,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblPass" Content="Password" HorizontalAlignment="Left" Margin="76,258,0,0" VerticalAlignment="Top"/>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Height="150" Width="80" Margin="0,50,125,0">
+            <Label x:Name="lblStuId" Margin="5" Content="Student ID:"/>
+            <Label x:Name="lblFName" Margin="5" Content="First Name:"/>
+            <Label x:Name="lblLName" Margin="5" Content="Last Name:"/>
+            <Label x:Name="lblPass" Margin="5" Content="Password:"/>
+        </StackPanel>
+
         <!--Input textboxes-->
-        <TextBox x:Name="tbxStuId" HorizontalAlignment="Left" Height="23" Margin="172,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="tbxFName" HorizontalAlignment="Left" Height="23" Margin="172,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="tbxLName" HorizontalAlignment="Left" Height="23" Margin="172,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox x:Name="pbxPass" HorizontalAlignment="Left" Margin="172,258,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Height="150" Width="120" Margin="75,50,0,0">
+            <TextBox x:Name="tbxStuId" Margin="5" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="tbxFName" Margin="5" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="tbxLName" Margin="5" TextWrapping="Wrap" Width="120"/>
+            <PasswordBox x:Name="pbxPass" Margin="5" Width="120"/>
+        </StackPanel>
+
         <!--Buttons-->
-        <Button x:Name="btnCreate" Content="Create Account" HorizontalAlignment="Left" Margin="310,308,0,0" VerticalAlignment="Top" Width="Auto" Click="BtnCreate_Click"/>
-        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="310,344,0,0" VerticalAlignment="Top" Width="85" Click="BtnBack_Click"/>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Bottom" Height="70" Width="130">
+            <Button x:Name="btnCreate" Content="Create Account" Margin="0,0,0,5" Click="BtnCreate_Click" Height="30" Width="130"/>
+            <Button x:Name="btnBack" Content="Back" Margin="0,5,0,0" Click="BtnBack_Click" Height="30" Width="130"/>
+        </StackPanel>
     </Grid>
 </Window>
