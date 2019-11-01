@@ -41,5 +41,11 @@ namespace Group_2___StudyApp
 
             //filldatagrid();
         }
+
+        private void BtnLog_Click(object sender, RoutedEventArgs e)
+        {
+            new Login().Show();
+            this.Close();
+        }
     }
 }
