@@ -191,5 +191,11 @@ namespace Group_2___StudyApp
             new Academic().Show();
             this.Hide();
         }
+
+        private void BtnReview_Click(object sender, RoutedEventArgs e)
+        {
+            new Window1().Show();
+            this.Hide();
+        }
     }
 }

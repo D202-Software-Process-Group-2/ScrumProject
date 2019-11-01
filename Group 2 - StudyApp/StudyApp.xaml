@@ -61,7 +61,8 @@
                 </StackPanel>
             </Grid>
             <!--Next Page Button-->
-            <Button x:Name="btnAcademic" Content="Academic History" Height="auto" Margin="605,99,20,58" Click="BtnAcademic_Click"/>
+            <Button x:Name="btnAcademic" Content="Academic History" Height="auto" Margin="605,72,20,85" Click="BtnAcademic_Click" RenderTransformOrigin="0.527,-0.19"/>
+            <Button x:Name="btnReview" Content="Review" Height="auto" Margin="605,119,20,38" Click="BtnReview_Click" RenderTransformOrigin="1.518,0.357"/>
             <!--Datagrid-->
             <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.Column="0" x:Uid="dataGrid" SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" Height="350" Margin="20 0" ItemsSource="{Binding}">
                 <DataGrid.Columns>
