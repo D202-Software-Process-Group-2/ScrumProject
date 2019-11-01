@@ -57,7 +57,6 @@ namespace Group_2___StudyApp
                 else
                 {
                     MessageBox.Show("Username or password is incorrect");
-                    tbxId.Text = null;
                     pbxPass.Password = null;
                 }
             }

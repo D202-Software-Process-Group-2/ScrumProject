@@ -52,7 +52,7 @@ namespace Group_2___StudyApp
 
             foreach (DataGridCheckBoxColumn bxdata in dataGrid.Items)
             {
-
+                
             }
 
             new MainWindow().Show();

@@ -34,6 +34,7 @@ namespace Group_2___StudyApp
             fillCourses();
         }
 
+        public static DataTable dtSelections = new DataTable();
         void fillcombobox()
         {
             SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
@@ -73,10 +74,10 @@ namespace Group_2___StudyApp
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    cbxCourses.Items.Add(dt.Rows[i]["Course"].ToString() );
+                    cbxCourses.Items.Add(dt.Rows[i]["Name"].ToString());
                 }
             }
-           
+
         }
 
         void filldatagrid()
@@ -143,7 +144,7 @@ namespace Group_2___StudyApp
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    cbxCourses.Items.Add(dt.Rows[i]["Course"].ToString());
+                    cbxCourses.Items.Add(dt.Rows[i]["Name"].ToString());
                 }
             }
             con.Close();
@@ -168,7 +169,7 @@ namespace Group_2___StudyApp
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    cbxCourses.Items.Add(dt.Rows[i]["Course"].ToString());
+                    cbxCourses.Items.Add(dt.Rows[i]["Name"].ToString());
                 }
             }
             con.Close();
@@ -193,7 +194,7 @@ namespace Group_2___StudyApp
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    cbxCourses.Items.Add(dt.Rows[i]["Course"].ToString());
+                    cbxCourses.Items.Add(dt.Rows[i]["Name"].ToString());
                 }
             }
             con.Close();
@@ -209,6 +210,18 @@ namespace Group_2___StudyApp
         {
             cbxCourses.Items.Clear();
             fillCourses();
+        }
+
+        private void BtnInfo_Click(object sender, RoutedEventArgs e)
+        {
+            SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
+            con.Open();
+            string sqlquery = "SELECT Description FROM Paper WHERE Name = ('" + cbxCourses.SelectedItem.ToString() + "')";
+            SqlCommand cmd = new SqlCommand(sqlquery, con);
+
+            var description = (string)cmd.ExecuteScalar();
+            con.Close();
+            MessageBox.Show(description);
         }
     }
 }
