@@ -75,5 +75,10 @@ namespace Group_2___StudyApp
             new SignUp().Show();
             this.Close();
         }
+
+        private void BtnResetPass_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

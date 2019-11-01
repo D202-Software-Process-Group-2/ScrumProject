@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Group_2___StudyApp"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800">
+        Title="Review" Height="450" Width="800">
     <Grid>
+        <Image Margin="560,10,10,294" HorizontalAlignment="Center" Width="222" Source="pack://siteoforigin:,,,/Resources/Ucol Logo.png"/>
+
         <Label Content="Review"  Width="563" Height="84" FontSize="72" FontFamily="Times New Roman" Margin="10,10,219,325"/>
         <Label Content="Student Details" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top" Width="217"/>
         <Grid>
@@ -23,11 +25,10 @@
                 <Label Content="x" x:Name="lblmajor"/>
             </StackPanel>
             <ListBox HorizontalAlignment="Left" Height="280" Margin="356,129,0,0" VerticalAlignment="Top" Width="426"/>
-            <Button Content="Print" HorizontalAlignment="Left" Margin="10,295,0,0" VerticalAlignment="Top" Width="75"/>
-            <Button Content="Save" HorizontalAlignment="Left" Margin="92,295,0,0" VerticalAlignment="Top" Width="75"/>
-            <Button Content="Back" HorizontalAlignment="Left" Margin="10,332,0,0" VerticalAlignment="Top" Width="157"/>
+            <Button x:Name="btnPrint" Content="Print" HorizontalAlignment="Left" Margin="10,295,0,0" VerticalAlignment="Top" Width="75"/>
+            <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="92,295,0,0" VerticalAlignment="Top" Width="75"/>
+            <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="10,332,0,0" VerticalAlignment="Top" Width="157" Click="BtnBack_Click"/>
         </Grid>
         <Label Content="Courses" Margin="352,99,388,0" VerticalAlignment="Top"/>
-
     </Grid>
 </Window>

@@ -31,7 +31,7 @@ namespace Group_2___StudyApp
         {
             InitializeComponent();
             fillcombobox();
-            fillCourses();
+            //fillCourses();
         }
 
         public static DataTable dtSelections = new DataTable();
@@ -206,9 +206,18 @@ namespace Group_2___StudyApp
             this.Hide();
         }
 
+        private void BtnReview_Click(object sender, RoutedEventArgs e)
+        {
+            new Window1().Show();
+            this.Hide();
+        }
+
         private void RbtAll_Checked(object sender, RoutedEventArgs e)
         {
-            cbxCourses.Items.Clear();
+            if (cbxCourses != null)
+            {
+                cbxCourses.Items.Clear();
+            }
             fillCourses();
         }
 
