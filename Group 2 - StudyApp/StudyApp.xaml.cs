@@ -59,7 +59,7 @@ namespace Group_2___StudyApp
         {
             SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
             con.Open();
-            string sqlquery = "Select * FROM Paper";
+            string sqlquery = "Select * FROM Paper Order by year";
             SqlCommand cmd = new SqlCommand(sqlquery, con);
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
 
@@ -93,16 +93,8 @@ namespace Group_2___StudyApp
             dataGrid.ItemsSource = dt.DefaultView;
             con.Close();
         }
-
-        void uncheckradio()
-        {
-            rbtYr1.IsChecked = false;
-            rbtYr2.IsChecked = false;
-            rbtYr3.IsChecked = false;
-        }
         private void Mcombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            uncheckradio();
             dataGrid.ItemsSource = null;
             dataGrid.Items.Clear();
             filldatagrid();
@@ -146,6 +138,7 @@ namespace Group_2___StudyApp
             dt.Columns.Add("Course", typeof(string), "Paper_Code + ' ' + Name");
 
             cbxCourses.DataContext = dt;
+            cbxCourses.Items.Clear();
             if (dt.Rows.Count > 0)
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
@@ -167,7 +160,17 @@ namespace Group_2___StudyApp
             DataTable dt = new DataTable();
             adp.Fill(dt);
 
-            dataGrid.ItemsSource = dt.DefaultView;
+            dt.Columns.Add("Course", typeof(string), "Paper_Code + ' ' + Name");
+
+            cbxCourses.DataContext = dt;
+            cbxCourses.Items.Clear();
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    cbxCourses.Items.Add(dt.Rows[i]["Course"].ToString());
+                }
+            }
             con.Close();
         }
 
@@ -182,7 +185,17 @@ namespace Group_2___StudyApp
             DataTable dt = new DataTable();
             adp.Fill(dt);
 
-            dataGrid.ItemsSource = dt.DefaultView;
+            dt.Columns.Add("Course", typeof(string), "Paper_Code + ' ' + Name");
+
+            cbxCourses.DataContext = dt;
+            cbxCourses.Items.Clear();
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    cbxCourses.Items.Add(dt.Rows[i]["Course"].ToString());
+                }
+            }
             con.Close();
         }
 
@@ -190,6 +203,12 @@ namespace Group_2___StudyApp
         {
             new Academic().Show();
             this.Hide();
+        }
+
+        private void RbtAll_Checked(object sender, RoutedEventArgs e)
+        {
+            cbxCourses.Items.Clear();
+            fillCourses();
         }
     }
 }
