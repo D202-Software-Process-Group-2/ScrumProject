@@ -31,9 +31,20 @@ namespace Group_2___StudyApp
         {
             InitializeComponent();
             fillcombobox();
-            //fillCourses();
+            fillCourses();
+            if (dtSelections != null)
+            {
+                filldghistory();
+            }
+
+            if (Username != null)
+            {
+                lblUserName.Text = Username;
+            }
         }
 
+        public static string UserID;
+        public static string Username;
         public static DataTable dtSelections = new DataTable();
         void fillcombobox()
         {
@@ -93,6 +104,11 @@ namespace Group_2___StudyApp
 
             dataGrid.ItemsSource = dt.DefaultView;
             con.Close();
+        }
+
+         void filldghistory()
+        {
+            dataGrid.ItemsSource = dtSelections.DefaultView;
         }
         private void Mcombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

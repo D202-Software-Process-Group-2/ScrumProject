@@ -27,6 +27,21 @@ namespace Group_2___StudyApp
         {
             InitializeComponent();
         }
+
+        void GetUsername()
+        {
+            SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
+            con.Open();
+            string sqlquery = "select CONCAT (Firstname, ' ',Lastname) as Fullname from Student Where Student_Id = ('" + tbxId.Text + "')";
+            SqlCommand cmd = new SqlCommand(sqlquery, con);
+
+            string value = cmd.ExecuteScalar().ToString();
+            if (value != null)
+            {
+                MainWindow.Username = value;
+            }
+
+        }
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
             SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
@@ -49,6 +64,8 @@ namespace Group_2___StudyApp
                     }
                     else
                     {
+                        GetUsername();
+                        MainWindow.UserID = tbxId.Text;
                         new MainWindow().Show();
                         this.Close();
                     }

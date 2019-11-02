@@ -47,7 +47,11 @@ namespace Group_2___StudyApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.dtSelections = ((DataTable)dataGrid.DataContext).Clone();
+            foreach (DataRowView drv in dataGrid.SelectedItems)
+            {
+                DataRow dr = drv.Row;
+                MainWindow.dtSelections.ImportRow(dr);
+            }
 
             new MainWindow().Show();
             this.Close();
