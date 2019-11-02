@@ -32,11 +32,14 @@ namespace Group_2___StudyApp
             InitializeComponent();
             fillcombobox();
             fillCourses();
-            if (dtSelections != null)
-            {
-                filldghistory();
-            }
 
+            //not funtional
+            //if (dtSelections != null)
+            //{
+            //    filldghistory();
+            //}
+
+            // Username Label Text change
             if (Username != null)
             {
                 lblUserName.Text = Username;
@@ -46,6 +49,8 @@ namespace Group_2___StudyApp
         public static string UserID;
         public static string Username;
         public static DataTable dtSelections = new DataTable();
+
+        //Fill Majors Combobox method
         void fillcombobox()
         {
             SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
@@ -67,6 +72,7 @@ namespace Group_2___StudyApp
             }
         }
 
+        //Fill Courses Combobox method
         void fillCourses()
         {
             SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
@@ -91,6 +97,7 @@ namespace Group_2___StudyApp
 
         }
 
+        //Fill Datagrid with Major Selection method
         void filldatagrid()
         {
             SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
@@ -106,6 +113,7 @@ namespace Group_2___StudyApp
             con.Close();
         }
 
+        //Fill Datagrid with Academic History Non-Functional
          void filldghistory()
         {
             dataGrid.ItemsSource = dtSelections.DefaultView;
@@ -135,12 +143,14 @@ namespace Group_2___StudyApp
             //filldatagrid();
         }
 
+        //Log out Button Function
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
         {
             new Login().Show();
             this.Close();
         }
 
+        //Radio Buttons Functions
         private void RbtYr1_Checked(object sender, RoutedEventArgs e)
         {
             SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
@@ -216,18 +226,6 @@ namespace Group_2___StudyApp
             con.Close();
         }
 
-        private void BtnAcademic_Click(object sender, RoutedEventArgs e)
-        {
-            new Academic().Show();
-            this.Hide();
-        }
-
-        private void BtnReview_Click(object sender, RoutedEventArgs e)
-        {
-            new Window1().Show();
-            this.Hide();
-        }
-
         private void RbtAll_Checked(object sender, RoutedEventArgs e)
         {
             if (cbxCourses != null)
@@ -237,6 +235,21 @@ namespace Group_2___StudyApp
             fillCourses();
         }
 
+        //Navigate To Academic History Page
+        private void BtnAcademic_Click(object sender, RoutedEventArgs e)
+        {
+            new Academic().Show();
+            this.Hide();
+        }
+
+        //Navigate To Review Page
+        private void BtnReview_Click(object sender, RoutedEventArgs e)
+        {
+            new Window1().Show();
+            this.Hide();
+        }
+
+        //Get Courses Combobox Selected Paper Info
         private void BtnInfo_Click(object sender, RoutedEventArgs e)
         {
             SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
