@@ -46,5 +46,15 @@ namespace Group_2___StudyApp
             new MainWindow().Show();
             this.Close();
         }
+
+        private void BtnPrint(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnSave(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

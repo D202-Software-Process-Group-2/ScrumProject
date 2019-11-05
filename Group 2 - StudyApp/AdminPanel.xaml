@@ -10,14 +10,18 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="867*"/>
         </Grid.ColumnDefinitions>
-
-        <Image Margin="0,10,0,309" HorizontalAlignment="Center" Height="100" Width="194" Source="pack://siteoforigin:,,,/Resources/Ucol Logo.png"/>
-
+        <!--UCOL Logo-->
+        <Image Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="100" Width="194" Source="pack://siteoforigin:,,,/Resources/Ucol Logo.png"/>
+        <!--Admin Title-->
         <Label Content="Admin" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="48" FontFamily="Times New Roman" Height="65" Width="143"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top" Width="88" Click="Button_Click"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Width="88"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="10,205,0,0" VerticalAlignment="Top" Width="88"/>
-        <Button x:Name="btnLog" Content="Log Out" HorizontalAlignment="Left" Margin="10,242,0,0" VerticalAlignment="Top" Width="88" Click="BtnLog_Click"/>
+        <!--Buttons-->
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,10,0,0">
+            <Button x:Name="btnAdd" Content="Add" Margin="0,0,0,5" Width="88" Click="Button_Click"/>
+            <Button x:Name="btnDelete" Content="Delete" Margin="0,5,0,5" Width="88" Click="BtnDelete"/>
+            <Button x:Name="btnSave" Content="Save" Margin="0,5,0,5" Width="88" Click="BtnSave"/>
+            <Button x:Name="btnLog" Content="Log Out" Margin="0,5,0,0" Width="88" Click="BtnLog_Click"/>
+        </StackPanel>
+        <!--Datagrid-->
         <DataGrid x:Name="dataGrid" Grid.Column="0" x:Uid="dataGrid" SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" Margin="114,131,0,10" ItemsSource="{Binding}">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Paper_Code}" Header="Paper Code" x:Name="paper_code" IsReadOnly="True" Width="120"/>
@@ -29,25 +33,23 @@
                 <DataGridTemplateColumn Header="Delete" Width="*" >
                     <DataGridTemplateColumn.CellTemplate >
                         <DataTemplate>
-                            <Button x:Name="btnDelete" Content="X" Click="btnDelete" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <Button x:Name="btnDelete" Content="X" Click="BtnDelete" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Grid Margin="733,67,9,288">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="66">
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,65,10,0" Width="120">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="60">
                 <!--Radiobutton years-->
                 <RadioButton x:Name="rbtYr1" Content="Year 1" Cursor="Hand" Height="21" GroupName="Year" IsChecked="True"/>
                 <RadioButton x:Name="rbtYr2" Content="Year 2" Cursor="Hand" Height="20" GroupName="Year"/>
                 <RadioButton x:Name="rbtYr3" Content="Year 3" Cursor="Hand" Height="24" GroupName="Year"/>
             </StackPanel>
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Width="60">
                 <RadioButton x:Name="rbtsem1" Content="Sem 1" Cursor="Hand" GroupName="Semester" IsChecked="True" Height="20"/>
                 <RadioButton x:Name="rbtsem2" Content="Sem 2" Cursor="Hand" GroupName="Semester"/>
             </StackPanel>
-
         </Grid>
-
     </Grid>
 </Window>

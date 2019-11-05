@@ -24,7 +24,7 @@ namespace Group_2___StudyApp
             InitializeComponent();
         }
 
-        private void btnDelete(object sender, RoutedEventArgs e)
+        private void BtnDelete(object sender, RoutedEventArgs e)
         {
             //--Current Code deletes data in the database so it is--
             //--commented until alternative code is implemented--
@@ -50,6 +50,11 @@ namespace Group_2___StudyApp
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnSave(object sender, RoutedEventArgs e)
         {
 
         }

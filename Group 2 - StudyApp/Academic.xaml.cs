@@ -56,5 +56,11 @@ namespace Group_2___StudyApp
             new MainWindow().Show();
             this.Close();
         }
+
+        private void btnCancel(object sender, RoutedEventArgs e)
+        {
+            new MainWindow().Show();
+            this.Close();
+        }
     }
 }

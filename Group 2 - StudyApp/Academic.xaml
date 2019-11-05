@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:Group_2___StudyApp"
         mc:Ignorable="d"
         Title="Academic" Height="450" Width="800">
-    <Grid Height="419" VerticalAlignment="Bottom">
+    <Grid x:Name="gridAcademic" Height="419">
         <!--Title-->
         <Label Content="Academic Record" HorizontalAlignment="Left" Margin="38,10,0,0" VerticalAlignment="Top" Height="Auto" FontSize="72" FontFamily="Times New Roman"/>
         <!--Image-->
         <Image Margin="603,6,10,320" Source="pack://siteoforigin:,,,/Resources/Ucol Logo.png"/>
-        
+        <!--DataGrid-->
         <DataGrid x:Name="dataGrid" Grid.Column="0" x:Uid="dataGrid" SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" Margin="20,100,21,53" ItemsSource="{Binding}">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Paper_Code}" Header="Paper Code" x:Name="paper_code" IsReadOnly="True" Width="120"/>
@@ -20,6 +20,10 @@
                 <DataGridCheckBoxColumn x:Name="checkbx" Header="Papers Completed" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Submit" HorizontalAlignment="Left" Margin="10,371,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click"/>
+        <!--Buttons-->
+        <StackPanel Orientation="Horizontal" Height="32" Width="170" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10">
+            <Button Content="Submit" Width="80" Click="Button_Click" Margin="0,0,5,0"/>
+            <Button Content="Cancel" Width="80" Click="btnCancel" Margin="5,0,0,0" />
+        </StackPanel>
     </Grid>
 </Window>
