@@ -97,7 +97,7 @@ namespace Group_2___StudyApp
 
         }
 
-        public DataTable dgdt = new DataTable();
+        public static DataTable dgdt = new DataTable();
         //Fill Datagrid with Major Selection method
         void filldatagrid()
         {
@@ -239,6 +239,10 @@ namespace Group_2___StudyApp
         //Navigate To Review Page
         private void BtnReview_Click(object sender, RoutedEventArgs e)
         {
+            if (Mcombobox.SelectedItem != null)
+            {
+                Window1.Major = Mcombobox.SelectedItem.ToString();
+            }
             new Window1().Show();
             this.Hide();
         }
