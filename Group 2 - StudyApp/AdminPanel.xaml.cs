@@ -11,6 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
+using System.Data.Sql;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Group_2___StudyApp
 {
@@ -22,6 +26,23 @@ namespace Group_2___StudyApp
         public Window2()
         {
             InitializeComponent();
+            filldatagrid();
+        }
+        public static DataTable dgdt = new DataTable();
+
+        //Fill Datagrid with Major Selection method
+        void filldatagrid()
+        {
+            SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
+            con.Open();
+            string sqlquery = "Select p.Paper_Code, p.Name, p.Description, p.Year, p.PreRequisite, p.Compulsory From Paper p ORDER BY Year";
+            SqlCommand cmd = new SqlCommand(sqlquery, con);
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+
+            adp.Fill(dgdt);
+
+            dataGrid.ItemsSource = dgdt.DefaultView;
+            con.Close();
         }
 
         private void btnDelete(object sender, RoutedEventArgs e)
@@ -47,6 +68,25 @@ namespace Group_2___StudyApp
             new Login().Show();
             this.Close();
             
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
+            con.Open();
+            string sqlquery = "Select p.Paper_Code, p.Name, p.Description, p.Year, p.PreRequisite, p.Compulsory, c.Semester From Paper p Inner Join Class c On c.Paper_Code=p.Paper_Code Inner Join Major m ON m.Major_Id=c.Major_Id ORDER BY Year, Semester";
+            SqlCommand cmd = new SqlCommand(sqlquery, con);
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+
+            adp.Fill(dgdt);
+
+            dataGrid.ItemsSource = dgdt.DefaultView;
+            con.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
