@@ -25,10 +25,26 @@
                 <Label Content="x" x:Name="lblmajor"/>
             </StackPanel>
             <ListBox HorizontalAlignment="Left" Height="280" Margin="356,129,0,0" VerticalAlignment="Top" Width="426"/>
+            <DataGrid x:Name="dataGrid" x:Uid="dataGrid" SelectionMode="Single" AutoGenerateColumns="False" Height="280" Margin="237,134,10,5" ItemsSource="{Binding}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Paper_Code}" Header="Paper Code" x:Name="paper_code" IsReadOnly="True" Width="120"/>
+                    <DataGridTextColumn Binding="{Binding Name}" Header="Name" x:Name="name" IsReadOnly="True" Width="230"/>
+                    <DataGridTextColumn Binding="{Binding Year}" Header="Year" x:Name="year" IsReadOnly="True" Width="90"/>
+                    <DataGridTextColumn Binding="{Binding Semester}" Header="Semester" x:Name="semester" IsReadOnly="True" Width="95"/>
+                    <!--Delete Button-->
+                    <!--<DataGridTemplateColumn Header="Delete" Width="*" >
+                        <DataGridTemplateColumn.CellTemplate >
+                            <DataTemplate>
+                                <Button x:Name="btnDelete" Content="X" Click="btnDelete" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>-->
+                </DataGrid.Columns>
+            </DataGrid>
             <Button x:Name="btnPrint" Content="Print" HorizontalAlignment="Left" Margin="10,295,0,0" VerticalAlignment="Top" Width="75"/>
             <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="92,295,0,0" VerticalAlignment="Top" Width="75"/>
             <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="10,332,0,0" VerticalAlignment="Top" Width="157" Click="BtnBack_Click"/>
         </Grid>
-        <Label Content="Courses" Margin="352,99,388,0" VerticalAlignment="Top"/>
+        <Label Content="Courses" Margin="245,99,495,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
