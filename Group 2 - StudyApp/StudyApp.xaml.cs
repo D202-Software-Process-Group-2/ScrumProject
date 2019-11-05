@@ -250,7 +250,6 @@ namespace Group_2___StudyApp
         //Get Courses Combobox Selected Paper Info
         private void BtnInfo_Click(object sender, RoutedEventArgs e)
         {
-
             if (cbxCourses.SelectedItem != null)
             {
                 SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
@@ -270,16 +269,23 @@ namespace Group_2___StudyApp
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
-            con.Open();
-            string sqlquery = "Select p.Paper_Code, p.Name, p.Description, p.Year, p.PreRequisite, p.Compulsory From Paper p Where p.Name = ('" + cbxCourses.SelectedItem.ToString() + "') ORDER BY Year";
-            SqlCommand cmd = new SqlCommand(sqlquery, con);
-            SqlDataAdapter adp = new SqlDataAdapter(cmd);
-            
-            adp.Fill(dgdt);
+            if (cbxCourses.SelectedItem != null)
+            {
+                SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
+                con.Open();
+                string sqlquery = "Select p.Paper_Code, p.Name, p.Description, p.Year, p.PreRequisite, p.Compulsory From Paper p Where p.Name = ('" + cbxCourses.SelectedItem.ToString() + "') ORDER BY Year";
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
 
-            dataGrid.ItemsSource = dgdt.DefaultView;
-            con.Close();
+                adp.Fill(dgdt);
+
+                dataGrid.ItemsSource = dgdt.DefaultView;
+                con.Close();
+            }
+            else
+            {
+                MessageBox.Show(" Please Select Course");
+            }
         }
     }
 }
