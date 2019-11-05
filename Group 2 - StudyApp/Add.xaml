@@ -5,12 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Group_2___StudyApp"
         mc:Ignorable="d"
-        Title="Add" Height="450" Width="800">
+        Title="Add" Height="450" Width="368.392">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <TextBox Grid.Column="0" x:Name="tbxPapercode" HorizontalAlignment="Left" Height="23" Margin="154,86,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox Grid.Column="0" x:Name="tbxpapername" HorizontalAlignment="Left" Height="23" Margin="154,124,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox Grid.Column="0" x:Name="tbxpaperdescription" HorizontalAlignment="Left" Height="23" Margin="154,166,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
@@ -23,6 +19,6 @@
         <Label Grid.Column="0" x:Name="lblYear" Content="Year" HorizontalAlignment="Left" Margin="67,209,0,0" VerticalAlignment="Top"/>
         <Label Grid.Column="0" x:Name="lblprereq" Content="Pre-Reqisite" HorizontalAlignment="Left" Margin="67,253,0,0" VerticalAlignment="Top"/>
         <Label Grid.Column="0" x:Name="lblCompulsory" Content="Compulsory" HorizontalAlignment="Left" Margin="71,291,0,0" VerticalAlignment="Top"/>
-        <Button Grid.Column="0" x:Name="btnaddpaper" Content="Add Paper" HorizontalAlignment="Left" Margin="34,358,0,0" VerticalAlignment="Top" Width="103"/>
+        <Button Grid.Column="0" x:Name="btnaddpaper" Content="Add Paper" HorizontalAlignment="Left" Margin="34,358,0,0" VerticalAlignment="Top" Width="103" Click="Btnaddpaper_Click"/>
     </Grid>
 </Window>
