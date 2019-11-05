@@ -112,7 +112,8 @@ namespace Group_2___StudyApp
 
         private void BtnResetPass_Click(object sender, RoutedEventArgs e)
         {
-
+            new PasswordReset().Show();
+            this.Close();
         }
     }
 }
