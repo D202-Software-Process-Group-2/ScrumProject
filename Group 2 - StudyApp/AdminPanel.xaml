@@ -15,7 +15,7 @@
 
         <Label Content="Admin" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="48" FontFamily="Times New Roman" Height="65" Width="143"/>
         <Button Content="Add" HorizontalAlignment="Left" Margin="10,168,0,0" Width="88" Click="Button_Click" RenderTransformOrigin="0.538,1.806" Height="32" VerticalAlignment="Top"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="10,205,0,0" VerticalAlignment="Top" Width="88" Click="Button_Click_1"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="10,205,0,0" VerticalAlignment="Top" Width="88"/>
         <Button x:Name="btnLog" Content="Log Out" HorizontalAlignment="Left" Margin="10,242,0,0" VerticalAlignment="Top" Width="88" Click="BtnLog_Click"/>
         <DataGrid x:Name="dataGrid" Grid.Column="0" x:Uid="dataGrid" SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" Margin="114,131,75,10" ItemsSource="{Binding}">
             <DataGrid.Columns>
