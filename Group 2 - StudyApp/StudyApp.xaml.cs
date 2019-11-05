@@ -251,7 +251,6 @@ namespace Group_2___StudyApp
         //Get Courses Combobox Selected Paper Info
         private void BtnInfo_Click(object sender, RoutedEventArgs e)
         {
-
             if (cbxCourses.SelectedItem != null)
             {
                 SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
