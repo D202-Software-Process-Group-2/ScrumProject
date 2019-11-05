@@ -29,6 +29,7 @@ namespace Group_2___StudyApp
             filldatagrid();
         }
         public static DataTable dgdt = new DataTable();
+        private string PK_ID;
 
         //Fill Datagrid with Major Selection method
         void filldatagrid()
@@ -47,20 +48,18 @@ namespace Group_2___StudyApp
 
         private void btnDelete(object sender, RoutedEventArgs e)
         {
-            //--Current Code deletes data in the database so it is--
-            //--commented until alternative code is implemented--
+           
+            var id1 = (DataRowView)dataGrid.SelectedItem;
 
-            //var id1 = (DataRowView)dataGrid.SelectedItem;
+            PK_ID = id1.Row["Paper_Code"].ToString();
 
-            //PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
+            SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
+            con.Open();
+            string sqlquery = "delete from Paper Where Paper_Code='" + PK_ID + "' ";
+            SqlCommand cmd = new SqlCommand(sqlquery, con);
+            cmd.ExecuteNonQuery();
 
-            //SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
-            //con.Open();
-            //string sqlquery = "delete from Major where Major_Id='" + PK_ID + "' ";
-            //SqlCommand cmd = new SqlCommand(sqlquery, con);
-            //cmd.ExecuteNonQuery();
-
-            //filldatagrid();
+            filldatagrid();
         }
 
         private void BtnLog_Click(object sender, RoutedEventArgs e)
