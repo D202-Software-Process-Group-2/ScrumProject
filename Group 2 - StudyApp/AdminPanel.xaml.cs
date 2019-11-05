@@ -52,6 +52,7 @@ namespace Group_2___StudyApp
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             new Add().Show();
+            this.Close();
         }
     }
 }

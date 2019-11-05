@@ -55,6 +55,13 @@ namespace Group_2___StudyApp
             cmd.ExecuteNonQuery();
             con.Close();
 
+            new Window2().Show();
+            this.Close();
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            new Window2().Show();
             this.Close();
         }
     }
