@@ -97,6 +97,7 @@ namespace Group_2___StudyApp
 
         }
 
+        public DataTable dgdt = new DataTable();
         //Fill Datagrid with Major Selection method
         void filldatagrid()
         {
@@ -106,10 +107,9 @@ namespace Group_2___StudyApp
             SqlCommand cmd = new SqlCommand(sqlquery, con);
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
 
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
+            adp.Fill(dgdt);
 
-            dataGrid.ItemsSource = dt.DefaultView;
+            dataGrid.ItemsSource = dgdt.DefaultView;
             con.Close();
         }
 
@@ -162,8 +162,6 @@ namespace Group_2___StudyApp
             DataTable dt = new DataTable();
             adp.Fill(dt);
 
-            dt.Columns.Add("Course", typeof(string), "Paper_Code + ' ' + Name");
-
             cbxCourses.DataContext = dt;
             cbxCourses.Items.Clear();
             if (dt.Rows.Count > 0)
@@ -187,8 +185,6 @@ namespace Group_2___StudyApp
             DataTable dt = new DataTable();
             adp.Fill(dt);
 
-            dt.Columns.Add("Course", typeof(string), "Paper_Code + ' ' + Name");
-
             cbxCourses.DataContext = dt;
             cbxCourses.Items.Clear();
             if (dt.Rows.Count > 0)
@@ -211,8 +207,6 @@ namespace Group_2___StudyApp
 
             DataTable dt = new DataTable();
             adp.Fill(dt);
-
-            dt.Columns.Add("Course", typeof(string), "Paper_Code + ' ' + Name");
 
             cbxCourses.DataContext = dt;
             cbxCourses.Items.Clear();
@@ -252,14 +246,36 @@ namespace Group_2___StudyApp
         //Get Courses Combobox Selected Paper Info
         private void BtnInfo_Click(object sender, RoutedEventArgs e)
         {
+
+            if (cbxCourses.SelectedItem != null)
+            {
+                SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
+                con.Open();
+                string sqlquery = "SELECT Description FROM Paper WHERE Name = ('" + cbxCourses.SelectedItem.ToString() + "')";
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+
+                var description = (string)cmd.ExecuteScalar();
+                con.Close();
+                MessageBox.Show(description);
+            }
+            else
+            {
+                MessageBox.Show(" Please Select Course");
+            }
+        }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
             SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
             con.Open();
-            string sqlquery = "SELECT Description FROM Paper WHERE Name = ('" + cbxCourses.SelectedItem.ToString() + "')";
+            string sqlquery = "Select p.Paper_Code, p.Name, p.Description, p.Year, p.PreRequisite, p.Compulsory From Paper p Where p.Name = ('" + cbxCourses.SelectedItem.ToString() + "') ORDER BY Year";
             SqlCommand cmd = new SqlCommand(sqlquery, con);
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            
+            adp.Fill(dgdt);
 
-            var description = (string)cmd.ExecuteScalar();
+            dataGrid.ItemsSource = dgdt.DefaultView;
             con.Close();
-            MessageBox.Show(description);
         }
     }
 }
