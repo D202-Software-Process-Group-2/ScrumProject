@@ -120,6 +120,7 @@ namespace Group_2___StudyApp
         }
         private void Mcombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            dgdt.Clear();
             dataGrid.ItemsSource = null;
             dataGrid.Items.Clear();
             filldatagrid();
