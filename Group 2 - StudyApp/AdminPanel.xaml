@@ -14,17 +14,15 @@
         <Image Margin="0,10,0,309" HorizontalAlignment="Center" Height="100" Width="194" Source="pack://siteoforigin:,,,/Resources/Ucol Logo.png"/>
 
         <Label Content="Admin" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="48" FontFamily="Times New Roman" Height="65" Width="143"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top" Width="88" Click="Button_Click"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Width="88"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="10,205,0,0" VerticalAlignment="Top" Width="88"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="10,168,0,0" Width="88" Click="Button_Click" RenderTransformOrigin="0.538,1.806" Height="32" VerticalAlignment="Top"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="10,205,0,0" VerticalAlignment="Top" Width="88" Click="Button_Click_1"/>
         <Button x:Name="btnLog" Content="Log Out" HorizontalAlignment="Left" Margin="10,242,0,0" VerticalAlignment="Top" Width="88" Click="BtnLog_Click"/>
-        <DataGrid x:Name="dataGrid" Grid.Column="0" x:Uid="dataGrid" SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" Margin="114,131,0,10" ItemsSource="{Binding}">
+        <DataGrid x:Name="dataGrid" Grid.Column="0" x:Uid="dataGrid" SelectionMode="Single" AutoGenerateColumns="False" Width="Auto" Margin="114,131,75,10" ItemsSource="{Binding}">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Paper_Code}" Header="Paper Code" x:Name="paper_code" IsReadOnly="True" Width="120"/>
-                <DataGridTextColumn Binding="{Binding Name}" Header="Name" x:Name="name" IsReadOnly="True" Width="230"/>
-                <DataGridTextColumn Binding="{Binding Year}" Header="Year" x:Name="year" IsReadOnly="True" Width="90"/>
-                <DataGridTextColumn Binding="{Binding Semester}" Header="Semester" x:Name="semester" IsReadOnly="True" Width="95"/>
-                <DataGridTextColumn Binding="{Binding PreRequisite}" Header="Pre-Requisite" x:Name="PreReq" IsReadOnly="True" Width="120"/>
+                <DataGridTextColumn Binding="{Binding Paper_Code}" Header="Paper Code" x:Name="paper_code" IsReadOnly="False" Width="120"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Name" x:Name="name" IsReadOnly="False" Width="230"/>
+                <DataGridTextColumn Binding="{Binding Year}" Header="Year" x:Name="year" IsReadOnly="False" Width="90"/>
+                <DataGridTextColumn Binding="{Binding PreRequisite}" Header="Pre-Requisite" x:Name="PreReq" IsReadOnly="False" Width="120"/>
                 <!--Delete Button-->
                 <DataGridTemplateColumn Header="Delete" Width="*" >
                     <DataGridTemplateColumn.CellTemplate >

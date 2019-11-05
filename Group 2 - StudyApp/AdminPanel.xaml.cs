@@ -11,6 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
+using System.Data.Sql;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Group_2___StudyApp
 {
@@ -22,24 +26,40 @@ namespace Group_2___StudyApp
         public Window2()
         {
             InitializeComponent();
+            filldatagrid();
+        }
+        public static DataTable dgdt = new DataTable();
+        private string PK_ID;
+
+        //Fill Datagrid with Major Selection method
+        void filldatagrid()
+        {
+            SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
+            con.Open();
+            string sqlquery = "Select p.Paper_Code, p.Name, p.Description, p.Year, p.PreRequisite, p.Compulsory From Paper p ORDER BY Year";
+            SqlCommand cmd = new SqlCommand(sqlquery, con);
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+
+            adp.Fill(dgdt);
+
+            dataGrid.ItemsSource = dgdt.DefaultView;
+            con.Close();
         }
 
         private void btnDelete(object sender, RoutedEventArgs e)
         {
-            //--Current Code deletes data in the database so it is--
-            //--commented until alternative code is implemented--
+           
+            var id1 = (DataRowView)dataGrid.SelectedItem;
 
-            //var id1 = (DataRowView)dataGrid.SelectedItem;
+            PK_ID = id1.Row["Paper_Code"].ToString();
 
-            //PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
+            SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
+            con.Open();
+            string sqlquery = "delete from Paper Where Paper_Code='" + PK_ID + "' ";
+            SqlCommand cmd = new SqlCommand(sqlquery, con);
+            cmd.ExecuteNonQuery();
 
-            //SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
-            //con.Open();
-            //string sqlquery = "delete from Major where Major_Id='" + PK_ID + "' ";
-            //SqlCommand cmd = new SqlCommand(sqlquery, con);
-            //cmd.ExecuteNonQuery();
-
-            //filldatagrid();
+            filldatagrid();
         }
 
         private void BtnLog_Click(object sender, RoutedEventArgs e)
