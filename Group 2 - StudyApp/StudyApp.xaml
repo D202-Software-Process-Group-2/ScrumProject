@@ -38,7 +38,7 @@
                 </Style>
             </Grid.Resources>
             <!--Header-->
-            <TextBlock x:Name="tblUserName" Text="User" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="23,10,0,0" />
+            <TextBlock x:Name="lblUserName" Text="User" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="23,10,0,0" />
             <!--Major selection section-->
             <Grid x:Name="gridMajors" Grid.Row="0" Grid.Column="0" Height="auto" Width="auto" HorizontalAlignment="right" VerticalAlignment="Bottom" Margin="0,0,20,0">
                 <StackPanel Orientation="Horizontal">
@@ -57,8 +57,8 @@
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Width="auto">
                     <!--Interactive controls-->
                     <ComboBox x:Name="cbxCourses" Text="Choose Course" IsEditable="True" IsReadOnly="True" Focusable="False" Cursor="Hand" Width="215"/>
-                    <Button x:Name="btnAdd" Content="Add" Margin="10,0,0,0"/>
-                    <Button x:Name="btnInfo" Content="Info" Margin="10,0,0,0"/>
+                    <Button x:Name="btnAdd" Content="Add" Margin="10,0,0,0" Click="BtnAdd_Click"/>
+                    <Button x:Name="btnInfo" Content="Info" Margin="10,0,0,0" Click="BtnInfo_Click"/>
                 </StackPanel>
             </Grid>
             <!--UCOL LOGO-->
@@ -75,13 +75,13 @@
                     <DataGridTextColumn Binding="{Binding Semester}" Header="Semester" x:Name="semester" IsReadOnly="True" Width="95"/>
                     <DataGridTextColumn Binding="{Binding PreRequisite}" Header="Pre-Requisite" x:Name="PreReq" IsReadOnly="True" Width="120"/>
                     <!--Delete Button-->
-                    <DataGridTemplateColumn Header="Delete" Width="*" >
+                    <!--<DataGridTemplateColumn Header="Delete" Width="*" >
                         <DataGridTemplateColumn.CellTemplate >
                             <DataTemplate>
                                 <Button x:Name="btnDelete" Content="X" Click="btnDelete" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+                    </DataGridTemplateColumn>-->
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

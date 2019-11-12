@@ -31,9 +31,26 @@ namespace Group_2___StudyApp
         {
             InitializeComponent();
             fillcombobox();
-            //fillCourses();
+            fillCourses();
+
+            //not funtional
+            //if (dtSelections != null)
+            //{
+            //    filldghistory();
+            //}
+
+            // Username Label Text change
+            if (Username != null)
+            {
+                lblUserName.Text = Username;
+            }
         }
 
+        public static string UserID;
+        public static string Username;
+        public static DataTable dtSelections = new DataTable();
+
+        //Fill Majors Combobox method
         void fillcombobox()
         {
             SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
@@ -55,6 +72,7 @@ namespace Group_2___StudyApp
             }
         }
 
+        //Fill Courses Combobox method
         void fillCourses()
         {
             SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
@@ -73,12 +91,14 @@ namespace Group_2___StudyApp
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    cbxCourses.Items.Add(dt.Rows[i]["Course"].ToString() );
+                    cbxCourses.Items.Add(dt.Rows[i]["Name"].ToString());
                 }
             }
-           
+
         }
 
+        public static DataTable dgdt = new DataTable();
+        //Fill Datagrid with Major Selection method
         void filldatagrid()
         {
             SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
@@ -87,14 +107,20 @@ namespace Group_2___StudyApp
             SqlCommand cmd = new SqlCommand(sqlquery, con);
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
 
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
+            adp.Fill(dgdt);
 
-            dataGrid.ItemsSource = dt.DefaultView;
+            dataGrid.ItemsSource = dgdt.DefaultView;
             con.Close();
+        }
+
+        //Fill Datagrid with Academic History Non-Functional
+         void filldghistory()
+        {
+            dataGrid.ItemsSource = dtSelections.DefaultView;
         }
         private void Mcombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            dgdt.Clear();
             dataGrid.ItemsSource = null;
             dataGrid.Items.Clear();
             filldatagrid();
@@ -118,12 +144,14 @@ namespace Group_2___StudyApp
             //filldatagrid();
         }
 
+        //Log out Button Function
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
         {
             new Login().Show();
             this.Close();
         }
 
+        //Radio Buttons Functions
         private void RbtYr1_Checked(object sender, RoutedEventArgs e)
         {
             SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
@@ -135,15 +163,13 @@ namespace Group_2___StudyApp
             DataTable dt = new DataTable();
             adp.Fill(dt);
 
-            dt.Columns.Add("Course", typeof(string), "Paper_Code + ' ' + Name");
-
             cbxCourses.DataContext = dt;
             cbxCourses.Items.Clear();
             if (dt.Rows.Count > 0)
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    cbxCourses.Items.Add(dt.Rows[i]["Course"].ToString());
+                    cbxCourses.Items.Add(dt.Rows[i]["Name"].ToString());
                 }
             }
             con.Close();
@@ -160,15 +186,13 @@ namespace Group_2___StudyApp
             DataTable dt = new DataTable();
             adp.Fill(dt);
 
-            dt.Columns.Add("Course", typeof(string), "Paper_Code + ' ' + Name");
-
             cbxCourses.DataContext = dt;
             cbxCourses.Items.Clear();
             if (dt.Rows.Count > 0)
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    cbxCourses.Items.Add(dt.Rows[i]["Course"].ToString());
+                    cbxCourses.Items.Add(dt.Rows[i]["Name"].ToString());
                 }
             }
             con.Close();
@@ -185,30 +209,16 @@ namespace Group_2___StudyApp
             DataTable dt = new DataTable();
             adp.Fill(dt);
 
-            dt.Columns.Add("Course", typeof(string), "Paper_Code + ' ' + Name");
-
             cbxCourses.DataContext = dt;
             cbxCourses.Items.Clear();
             if (dt.Rows.Count > 0)
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    cbxCourses.Items.Add(dt.Rows[i]["Course"].ToString());
+                    cbxCourses.Items.Add(dt.Rows[i]["Name"].ToString());
                 }
             }
             con.Close();
-        }
-
-        private void BtnAcademic_Click(object sender, RoutedEventArgs e)
-        {
-            new Academic().Show();
-            this.Hide();
-        }
-
-        private void BtnReview_Click(object sender, RoutedEventArgs e)
-        {
-            new Window1().Show();
-            this.Hide();
         }
 
         private void RbtAll_Checked(object sender, RoutedEventArgs e)
@@ -218,6 +228,65 @@ namespace Group_2___StudyApp
                 cbxCourses.Items.Clear();
             }
             fillCourses();
+        }
+
+        //Navigate To Academic History Page
+        private void BtnAcademic_Click(object sender, RoutedEventArgs e)
+        {
+            new Academic().Show();
+            this.Hide();
+        }
+
+        //Navigate To Review Page
+        private void BtnReview_Click(object sender, RoutedEventArgs e)
+        {
+            if (Mcombobox.SelectedItem != null)
+            {
+                Window1.Major = Mcombobox.SelectedItem.ToString();
+            }
+            new Window1().Show();
+            this.Hide();
+        }
+
+        //Get Courses Combobox Selected Paper Info
+        private void BtnInfo_Click(object sender, RoutedEventArgs e)
+        {
+            if (cbxCourses.SelectedItem != null)
+            {
+                SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
+                con.Open();
+                string sqlquery = "SELECT Description FROM Paper WHERE Name = ('" + cbxCourses.SelectedItem.ToString() + "')";
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+
+                var description = (string)cmd.ExecuteScalar();
+                con.Close();
+                MessageBox.Show(description);
+            }
+            else
+            {
+                MessageBox.Show(" Please Select Course");
+            }
+        }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            if (cbxCourses.SelectedItem != null)
+            {
+                SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
+                con.Open();
+                string sqlquery = "Select p.Paper_Code, p.Name, p.Description, p.Year, p.PreRequisite, p.Compulsory From Paper p Where p.Name = ('" + cbxCourses.SelectedItem.ToString() + "') ORDER BY Year";
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+
+                adp.Fill(dgdt);
+
+                dataGrid.ItemsSource = dgdt.DefaultView;
+                con.Close();
+            }
+            else
+            {
+                MessageBox.Show(" Please Select Course");
+            }
         }
     }
 }

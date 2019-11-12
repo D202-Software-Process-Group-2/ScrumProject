@@ -30,8 +30,6 @@ namespace Group_2___StudyApp
             filldatagrid();
         }
 
-        public DataTable dthistory = new DataTable();
-
         private DataTable dt = new DataTable();
         void filldatagrid()
         {
@@ -49,12 +47,18 @@ namespace Group_2___StudyApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            foreach (DataGridCheckBoxColumn bxdata in dataGrid.Items)
+            foreach (DataRowView drv in dataGrid.SelectedItems)
             {
-
+                DataRow dr = drv.Row;
+                MainWindow.dtSelections.ImportRow(dr);
             }
 
+            new MainWindow().Show();
+            this.Close();
+        }
+
+        private void btnCancel(object sender, RoutedEventArgs e)
+        {
             new MainWindow().Show();
             this.Close();
         }

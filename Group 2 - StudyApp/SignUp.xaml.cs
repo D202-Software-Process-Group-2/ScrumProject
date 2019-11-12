@@ -29,6 +29,8 @@ namespace Group_2___StudyApp
             InitializeComponent();
         }
 
+        public DataTable dtSelection;
+
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {            
             new Login().Show();
@@ -52,19 +54,23 @@ namespace Group_2___StudyApp
                 con.Open();
                 cmd.ExecuteNonQuery();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show("There is an Error" + ex);
+                MessageBox.Show("Cannot create account as " + Student_Id + " already has an account");
+                tbxStuId.Clear();
+                tbxFName.Clear();
+                tbxLName.Clear();
+                pbxPass.Clear();
+                return;
             }
             finally
             {
                 con.Close();
-                new Login().Show();
-                this.Close();
             }
 
-           // new Login().Show();
-           // this.Close();
+            new Login().Show();
+            this.Close();
+
         }
 
     }

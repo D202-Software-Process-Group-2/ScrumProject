@@ -27,6 +27,37 @@ namespace Group_2___StudyApp
         {
             InitializeComponent();
         }
+
+        void GetUserdetails()
+        {
+            SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
+            con.Open();
+            string sqlquery = "select CONCAT (Firstname, ' ',Lastname) as Fullname from Student Where Student_Id = ('" + tbxId.Text + "')";
+            string sqlquery1 = "Select Firstname from student where Student_Id = ('" + tbxId.Text + "')";
+            string sqlquery2 = "Select Lastname from student where Student_Id = ('" + tbxId.Text + "')";
+            SqlCommand cmd = new SqlCommand(sqlquery, con);
+            SqlCommand cmd1 = new SqlCommand(sqlquery1, con);
+            SqlCommand cmd2 = new SqlCommand(sqlquery2, con);
+
+            string value = cmd.ExecuteScalar().ToString();
+            if (value != null)
+            {
+                MainWindow.Username = value;
+            }
+
+            string value1 = cmd1.ExecuteScalar().ToString();
+            if (value1 != null)
+            {
+                Window1.Firstname = value1;
+            }
+
+            string value2 = cmd2.ExecuteScalar().ToString();
+            if (value2 != null)
+            {
+                Window1.Lastname = value2;
+            }
+
+        }
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
             SqlConnection con = new SqlConnection(Properties.Settings.Default.DataConString);
@@ -49,6 +80,9 @@ namespace Group_2___StudyApp
                     }
                     else
                     {
+                        GetUserdetails();
+                        MainWindow.UserID = tbxId.Text;
+
                         new MainWindow().Show();
                         this.Close();
                     }
@@ -78,7 +112,8 @@ namespace Group_2___StudyApp
 
         private void BtnResetPass_Click(object sender, RoutedEventArgs e)
         {
-
+            new PasswordReset().Show();
+            this.Close();
         }
     }
 }

@@ -22,12 +22,39 @@ namespace Group_2___StudyApp
         public Window1()
         {
             InitializeComponent();
+            filldetails();
+            filldatagrid();
         }
 
+        public static string Firstname;
+        public static string Lastname;
+        public static string Major = "Unendorsed";
+
+        void filldatagrid()
+        {
+            dataGrid.ItemsSource = MainWindow.dgdt.DefaultView;
+        }
+        void filldetails()
+        {
+            lblStudent_Id.Content = MainWindow.UserID;
+            lblFirst_Name.Content = Firstname;
+            lblLast_Name.Content = Lastname;
+            lblmajor.Content = Major;
+        }
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             new MainWindow().Show();
             this.Close();
+        }
+
+        private void BtnPrint(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnSave(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
